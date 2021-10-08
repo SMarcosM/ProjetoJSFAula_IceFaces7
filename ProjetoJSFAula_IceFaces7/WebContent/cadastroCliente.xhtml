@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+	   xmlns:ui="http://java.sun.com/jsf/facelets"
+	   xmlns:h="http://java.sun.com/jsf/html"
+	   xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	  <h:outputStylesheet library="css" name="style.css" />
+	  <title>Cadastro de Cliente</title>	  
+</h:head>	
+
+<h:body>
+	<header>
+		<h:outputLabel styleClass="img-logo center">
+			<h:graphicImage library="img" name="kroton.jpg" />
+		</h:outputLabel>
+	</header>
+
+<h:form id="formulario">
+	<h:outputText id="titulo" value="Cadastro de Cliente" style="font-weight: bold;"/>
+	<h:panelGrid id="dados" columns="2">
+		
+		<h:outputText id="nomeLabel" value="Nome:" />
+		<h:inputText id="nome" label="Nome" value="#{clienteMB.cliente.nome}" maxlength="50"/>
+		
+		<h:outputText id="idadeLabel" value="Idade:"/>        
+        <h:inputText id="idade" label="Idade" value="#{clienteMB.cliente.idade}" maxlength="3">
+        	        
+        </h:inputText>
+                    
+        <h:outputText id="cpfLabel" value="CPF:"/>        
+        <h:inputText id="cpf" label="CPF" value="#{clienteMB.cliente.CPF}" maxlength="14"/>
+        
+        <h:outputText id="enderecoLabel" value="Endereço:"/>        
+        <h:inputText id="endereco" label="Endereço" value="#{clienteMB.cliente.endereco}" maxlength="60"/>
+        
+        <h:outputText id="telefoneLabel" value="Telefone:"/>        
+        <h:inputText id="telefone" label="Telefone" value="#{clienteMB.cliente.telefone}" maxlength="15"/>        
+        
+        <h:outputText id="emailLabel" value="Email:"/>        
+        <h:inputText id="email" label="Email" value="#{clienteMB.cliente.email}" maxlength="50"/>         
+		
+	</h:panelGrid>
+	<h:commandButton id="cadastrar" value="Salvar" action="#{clienteMB.adicionarCliente}" process="@this" partialSubmit="true"/> 		
+	<h:commandButton id="cancelar" value="Cancelar" action="#{clienteMB.retornarListaClientes}"      />
+	<h:messages id="msg" />
+
+
+</h:form>	
+
+</h:body>
+</html>

@@ -1,0 +1,38 @@
+<h:dataTable id="clientes" value="#{clienteMB.clientes}" var="c" style="width: 100%" styleClass="tabela"   headerClass="cabecalho" >
+        <h:column id="columnNome">
+          <f:facet name="header">
+            <h:outputText id="headerNome" value="Nome"/>
+          </f:facet>
+          <h:outputText id="valorNome" value="#{c.nome}"/>
+        </h:column>
+        <h:column id="columnIdade">
+          <f:facet name="header">
+            <h:outputText id="headerIdade" value="Idade"/>
+          </f:facet>
+          <h:outputText id="valorIdade" value="#{c.idade}"/>
+        </h:column>
+        <h:column id="columnCPF">
+          <f:facet name="header">
+            <h:outputText id="headerCPF" value="CPF"/>
+          </f:facet>
+          <h:outputText id="valorCPF" value="#{c.CPF}"/>
+        </h:column>
+        <h:column id="columnEnderco">
+          <f:facet name="header">
+            <h:outputText id="headerEndereco" value="Endereço"/>
+          </f:facet>
+          <h:outputText id="valorEndereco" value="#{c.endereco}"/>
+        </h:column>        
+        <h:column id="columnTelefone">
+          <f:facet name="header">
+            <h:outputText id="headerTelefone" value="Telefone"/>
+          </f:facet>
+          <h:outputText id="valorTelefone" value="#{c.telefone}"/>
+        </h:column>
+        <h:column id="columnEmail">
+          <f:facet name="header">
+            <h:outputText id="headerEmail" value="Email"/>
+          </f:facet>
+          <h:outputText id="valorEmail" value="#{c.email}"/>
+        </h:column>        
+      </h:dataTable>

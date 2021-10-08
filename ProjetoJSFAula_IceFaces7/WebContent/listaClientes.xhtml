@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://richfaces.org/a4j"
+     xmlns:rich="http://richfaces.org/rich" >
+      
+  <h:head>
+  <h:outputStylesheet library="css" name="style.css" />
+    <title>Lista de Clientes</title>
+  </h:head>
+  <h:body>
+  	<header>
+		<h:outputLabel styleClass="img-logo center">
+			<h:graphicImage library="img" name="kroton.jpg" />
+		</h:outputLabel>
+	</header>
+    <h:form id="idFormlista">
+    <header>
+    <h:commandButton id="idCadastrar" value="Cadastrar Clientes" update="idFormlista" action="#{clienteMB.criarCliente}" /> 
+ 		
+	<h:commandButton id="cadastroServicos" value="Cadastrar Serviços" action="#{automovelMB.cadastrarServicos}"      />
+    </header>
+    
+    	<h:messages id="msg" />
+        <h:outputText id="titulo" value="Lista de Clientes" style="font-weight: bold;"/>
+      <h:dataTable id="clientes" value="#{clienteMB.clientes}" var="c" style="width: 100%" styleClass="tabela"   headerClass="cabecalho"  rowClasses="ultimo,primeiro">
+        <h:column id="columnNome">
+          <f:facet name="header">
+            <h:outputText id="headerNome" value="Nome"/>
+          </f:facet>
+          <h:outputText id="valorNome" value="#{c.nome}"/>
+        </h:column>
+        <h:column id="columnIdade">
+          <f:facet name="header">
+            <h:outputText id="headerIdade" value="Idade"/>
+          </f:facet>
+          <h:outputText id="valorIdade" value="#{c.idade}"/>
+        </h:column>
+        <h:column id="columnCPF">
+          <f:facet name="header">
+            <h:outputText id="headerCPF" value="CPF"/>
+          </f:facet>
+          <h:outputText id="valorCPF" value="#{c.CPF}"/>
+        </h:column>
+        <h:column id="columnEnderco">
+          <f:facet name="header">
+            <h:outputText id="headerEndereco" value="Endereço"/>
+          </f:facet>
+          <h:outputText id="valorEndereco" value="#{c.endereco}"/>
+        </h:column>        
+        <h:column id="columnTelefone">
+          <f:facet name="header">
+            <h:outputText id="headerTelefone" value="Telefone"/>
+          </f:facet>
+          <h:outputText id="valorTelefone" value="#{c.telefone}"/>
+        </h:column>
+        <h:column id="columnEmail">
+          <f:facet name="header">
+            <h:outputText id="headerEmail" value="Email"/>
+          </f:facet>
+          <h:outputText id="valorEmail" value="#{c.email}"/>
+        </h:column>        
+        <h:column id="columnOpcoes">
+        
+        	<h:commandButton id="idAterar" value="Alterar" update="idFormlista"  action="#{clienteMB.alterarCliente(c.id)}"      />
+        
+        	<h:commandButton id="idExcluir" value="Excluir" update="idFormlista"  action="#{clienteMB.removerCliente(c.id)}"      />
+        </h:column>
+      </h:dataTable>
+    </h:form>
+
+  </h:body>
+</html>
